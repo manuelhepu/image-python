@@ -7,7 +7,7 @@ import psycopg2
 import sys
 import pytz
 from requests.auth import HTTPBasicAuth
-from datetime import datetime, timezone
+
 
 env = sys.argv[1]
 tegnology = sys.argv[2]
@@ -25,28 +25,15 @@ try:
     connection = psycopg2.connect(user= user_par,password= password_par,host= host_par,port= port_par, database= database_par)
     cursor = connection.cursor()
 
-    get_ejecucion = """SELECT env FROM applications WHERE env = %s"""
-    
-    
-    
-    cursor.execute(get_ejecucion,(env,))
+    get_ejecucion = """SELECT env FROM applications WHERE env = %s AND tegnology = %s AND application_name = %s"""
+    cursor.execute(get_ejecucion,(env,tegnology,application,))
     execution = [row[0] for row in cursor][0]
     if execution is None:
-        execution = 1
-    else:
-        execution += 1
-
-    for i in range(0, totalvuln):
-        dt = datetime.now()
-        dt = dt.replace(tzinfo=timezone.utc)
-        postgres_insert_query = """ INSERT INTO trivi_image (image, target, type, vid, package, installed, fixed, severity, url, execution, insertiondate) VALUES (%s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
-        record_to_insert = (image, vuln["vulnerabilities"][i]["Target"],vuln["vulnerabilities"][i]["Type"],vuln["vulnerabilities"][i]["ID"],vuln["vulnerabilities"][i]["PkgName"],vuln["vulnerabilities"][i]["InstalledVersion"],vuln["vulnerabilities"][i]["FixedVersion"],vuln["vulnerabilities"][i]["Severity"],vuln["vulnerabilities"][i]["PrimaryURL"],execution,dt)
+        postgres_insert_query = """ INSERT INTO applications (env, tegnology, application_name) VALUES (%s, %s,%s) """
+        record_to_insert = (env,tegnology,application)
         cursor.execute(postgres_insert_query, record_to_insert)
-        try:
-            connection.commit()
-        except (Exception, psycopg2.Error) as error:
-            print("Ha fallado el insert")
-    print("Todo ha ido bien")
+    else:
+        print("Ya existe el registro.")
 except (Exception, psycopg2.Error) as error:
     print("Failed to insert record into mobile table", error)
 
