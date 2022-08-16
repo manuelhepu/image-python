@@ -30,9 +30,8 @@ try:
 
     get_ejecucion = """SELECT env FROM applications WHERE env = %s AND tegnology = %s AND application_name = %s"""
     cursor.execute(get_ejecucion,(env,tegnology,application))
-    execution = cursor.fetchone()
-    print("Select realizado.")
-    if execution is None:
+
+    if len(cursor) > 0:
         postgres_insert_query = """INSERT INTO applications (env, tegnology, application_name) VALUES (%s, %s,%s) """
         record_to_insert = (env,tegnology,application)
         cursor.execute(postgres_insert_query, record_to_insert)
