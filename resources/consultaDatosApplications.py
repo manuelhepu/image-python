@@ -28,13 +28,22 @@ try:
     connection = psycopg2.connect(user= user_par,password= password_par,host= host_par,port= port_par, database= database_par)
     cursor = connection.cursor()
 
-    get_ejecucion = """SELECT env FROM applications WHERE env = %s AND tegnology = %s AND application_name = %s"""
+    get_ejecucion = """SELECT * FROM applications WHERE env = %s AND tegnology = %s AND application_name = %s"""
     cursor.execute(get_ejecucion,(env,tegnology,application))
+    exist= False
+    for row in cursor:
+        exist = True
+        print(row)
 
-    if len(cursor) > 0:
-        postgres_insert_query = """INSERT INTO applications (env, tegnology, application_name) VALUES (%s, %s,%s) """
+    
+    if exist == False:
+        postgres_insert_query = """INSERT INTO applications (env, tegnology, application_name) VALUES (%s, %s, %s) """
         record_to_insert = (env,tegnology,application)
         cursor.execute(postgres_insert_query, record_to_insert)
+        try:
+            connection.commit()
+        except (Exception, psycopg2.Error) as error:
+            print("Ha fallado el insert")
         print("Insert realizado.")
     else:
         print("Ya existe el registro.")
