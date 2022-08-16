@@ -8,6 +8,7 @@ import sys
 import pytz
 from requests.auth import HTTPBasicAuth
 
+print("prueba entrada")
 
 env = sys.argv[1]
 tegnology = sys.argv[2]
