@@ -20,7 +20,9 @@ database_par = sys.argv[8]
 
 
 #Create DB connection
-
+print(env)
+print(tegnology)
+print(application)
 try:
     connection = psycopg2.connect(user= user_par,password= password_par,host= host_par,port= port_par, database= database_par)
     cursor = connection.cursor()
