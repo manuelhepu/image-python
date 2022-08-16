@@ -1,0 +1,444 @@
+[
+    
+    {
+        "filename": "./README.md",
+        "line": 9,
+        "rule": "MD009",
+        "aliases": [
+            "no-trailing-spaces"
+        ],
+        "description": "Trailing spaces"
+    },
+    {
+        "filename": "./README.md",
+        "line": 12,
+        "rule": "MD009",
+        "aliases": [
+            "no-trailing-spaces"
+        ],
+        "description": "Trailing spaces"
+    },
+    {
+        "filename": "./README.md",
+        "line": 21,
+        "rule": "MD009",
+        "aliases": [
+            "no-trailing-spaces"
+        ],
+        "description": "Trailing spaces"
+    },
+    {
+        "filename": "./README.md",
+        "line": 35,
+        "rule": "MD009",
+        "aliases": [
+            "no-trailing-spaces"
+        ],
+        "description": "Trailing spaces"
+    },
+    {
+        "filename": "./README.md",
+        "line": 70,
+        "rule": "MD009",
+        "aliases": [
+            "no-trailing-spaces"
+        ],
+        "description": "Trailing spaces"
+    },
+    {
+        "filename": "./README.md",
+        "line": 77,
+        "rule": "MD009",
+        "aliases": [
+            "no-trailing-spaces"
+        ],
+        "description": "Trailing spaces"
+    },
+    {
+        "filename": "./README.md",
+        "line": 85,
+        "rule": "MD009",
+        "aliases": [
+            "no-trailing-spaces"
+        ],
+        "description": "Trailing spaces"
+    },
+    {
+        "filename": "./README.md",
+        "line": 9,
+        "rule": "MD010",
+        "aliases": [
+            "no-hard-tabs"
+        ],
+        "description": "Hard tabs"
+    },
+    {
+        "filename": "./README.md",
+        "line": 9,
+        "rule": "MD012",
+        "aliases": [
+            "no-multiple-blanks"
+        ],
+        "description": "Multiple consecutive blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 27,
+        "rule": "MD012",
+        "aliases": [
+            "no-multiple-blanks"
+        ],
+        "description": "Multiple consecutive blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 39,
+        "rule": "MD012",
+        "aliases": [
+            "no-multiple-blanks"
+        ],
+        "description": "Multiple consecutive blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 96,
+        "rule": "MD012",
+        "aliases": [
+            "no-multiple-blanks"
+        ],
+        "description": "Multiple consecutive blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 1,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 16,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 30,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 35,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 36,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 37,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 43,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 44,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 45,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 54,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 55,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 104,
+        "rule": "MD013",
+        "aliases": [
+            "line-length"
+        ],
+        "description": "Line length"
+    },
+    {
+        "filename": "./README.md",
+        "line": 3,
+        "rule": "MD022",
+        "aliases": [
+            "blanks-around-headers"
+        ],
+        "description": "Headers should be surrounded by blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 10,
+        "rule": "MD022",
+        "aliases": [
+            "blanks-around-headers"
+        ],
+        "description": "Headers should be surrounded by blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 34,
+        "rule": "MD022",
+        "aliases": [
+            "blanks-around-headers"
+        ],
+        "description": "Headers should be surrounded by blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 4,
+        "rule": "MD029",
+        "aliases": [
+            "ol-prefix"
+        ],
+        "description": "Ordered list item prefix"
+    },
+    {
+        "filename": "./README.md",
+        "line": 6,
+        "rule": "MD029",
+        "aliases": [
+            "ol-prefix"
+        ],
+        "description": "Ordered list item prefix"
+    },
+    {
+        "filename": "./README.md",
+        "line": 7,
+        "rule": "MD029",
+        "aliases": [
+            "ol-prefix"
+        ],
+        "description": "Ordered list item prefix"
+    },
+    {
+        "filename": "./README.md",
+        "line": 4,
+        "rule": "MD032",
+        "aliases": [
+            "blanks-around-lists"
+        ],
+        "description": "Lists should be surrounded by blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 43,
+        "rule": "MD032",
+        "aliases": [
+            "blanks-around-lists"
+        ],
+        "description": "Lists should be surrounded by blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 46,
+        "rule": "MD032",
+        "aliases": [
+            "blanks-around-lists"
+        ],
+        "description": "Lists should be surrounded by blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 56,
+        "rule": "MD032",
+        "aliases": [
+            "blanks-around-lists"
+        ],
+        "description": "Lists should be surrounded by blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 100,
+        "rule": "MD032",
+        "aliases": [
+            "blanks-around-lists"
+        ],
+        "description": "Lists should be surrounded by blank lines"
+    },
+    {
+        "filename": "./README.md",
+        "line": 15,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 16,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 17,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 18,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 19,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 37,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 42,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 49,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 66,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 67,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 68,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 79,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 80,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    },
+    {
+        "filename": "./README.md",
+        "line": 81,
+        "rule": "MD034",
+        "aliases": [
+            "no-bare-urls"
+        ],
+        "description": "Bare URL used"
+    }
+]
