@@ -8,7 +8,6 @@ import sys
 import pytz
 from requests.auth import HTTPBasicAuth
 
-print("prueba entrada")
 
 env = sys.argv[1]
 tegnology = sys.argv[2]
@@ -20,10 +19,7 @@ port_par = sys.argv[7]
 database_par = sys.argv[8]
 
 
-#Create DB connection
-print(env)
-print(tegnology)
-print(application)
+
 try:
     connection = psycopg2.connect(user= user_par,password= password_par,host= host_par,port= port_par, database= database_par)
     cursor = connection.cursor()
@@ -46,7 +42,7 @@ try:
             print("Ha fallado el insert")
         print("Insert realizado.")
     else:
-        print("Ya existe el registro.")
+        print("Ya existe la app.")
 except (Exception, psycopg2.Error) as error:
     print("Failed to insert record into applications table", error)
 
