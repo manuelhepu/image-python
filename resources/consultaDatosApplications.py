@@ -29,7 +29,7 @@ try:
     exist= False
     for row in cursor:
         exist = True
-        print(row)
+
 
     
     if exist == False:
