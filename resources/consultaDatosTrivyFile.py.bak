@@ -21,7 +21,7 @@ f = open(report)
 
 trivy = json.load(f)
 
-#numtarget=len(trivy["Results"])
+numtarget=len(trivy["Results"])
 
 
 vuln = { "vulnerabilities":[]}
