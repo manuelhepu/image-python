@@ -16,6 +16,7 @@ host_par = sys.argv[4]
 port_par = sys.argv[5]
 database_par = sys.argv[6]
 image =  sys.argv[7]
+tag =  sys.argv[8]
 
 f = open(report)
 
@@ -112,8 +113,8 @@ try:
     connection = psycopg2.connect(user= user_par,password= password_par,host= host_par,port= port_par, database= database_par)
     cursor = connection.cursor()
     totalvuln=len(vuln["vulnerabilities"])
-    get_ejecucion = """SELECT MAX(execution) FROM trivy_file WHERE image = %s"""
-    cursor.execute(get_ejecucion,(image,))
+    get_ejecucion = """SELECT MAX(execution) FROM trivy_file WHERE image = %s AND tag = %s"""
+    cursor.execute(get_ejecucion,(image,tag,))
     execution = [row[0] for row in cursor][0]
     if execution is None:
         execution = 1
@@ -123,8 +124,8 @@ try:
     for i in range(0, totalvuln):
         dt = datetime.now()
         dt = dt.replace(tzinfo=timezone.utc)
-        postgres_insert_query = """ INSERT INTO trivy_file (image, target, class, succes, failures, exceptions, type, id_vul, title, description, message, resolution, severity, url, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
-        record_to_insert = (image, vuln["vulnerabilities"][i]["Target"],vuln["vulnerabilities"][i]["Class"],vuln["vulnerabilities"][i]["Successes"],vuln["vulnerabilities"][i]["Failures"],vuln["vulnerabilities"][i]["Exceptions"],vuln["vulnerabilities"][i]["Type"],vuln["vulnerabilities"][i]["ID"],vuln["vulnerabilities"][i]["Title"],vuln["vulnerabilities"][i]["Description"],vuln["vulnerabilities"][i]["Message"], vuln["vulnerabilities"][i]["Resolution"], vuln["vulnerabilities"][i]["Severity"], vuln["vulnerabilities"][i]["PrimaryURL"],execution,dt)
+        postgres_insert_query = """ INSERT INTO trivy_file (image, tag, target, class, succes, failures, exceptions, type, id_vul, title, description, message, resolution, severity, url, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
+        record_to_insert = (image, tag, vuln["vulnerabilities"][i]["Target"],vuln["vulnerabilities"][i]["Class"],vuln["vulnerabilities"][i]["Successes"],vuln["vulnerabilities"][i]["Failures"],vuln["vulnerabilities"][i]["Exceptions"],vuln["vulnerabilities"][i]["Type"],vuln["vulnerabilities"][i]["ID"],vuln["vulnerabilities"][i]["Title"],vuln["vulnerabilities"][i]["Description"],vuln["vulnerabilities"][i]["Message"], vuln["vulnerabilities"][i]["Resolution"], vuln["vulnerabilities"][i]["Severity"], vuln["vulnerabilities"][i]["PrimaryURL"],execution,dt)
         cursor.execute(postgres_insert_query, record_to_insert)
         try:
             connection.commit()

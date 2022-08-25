@@ -16,6 +16,7 @@ host_par = sys.argv[4]
 port_par = sys.argv[5]
 database_par = sys.argv[6]
 image = sys.argv[7]
+tag = sys.argv[8]
 
 
 f = open(report)
@@ -83,8 +84,8 @@ try:
     connection = psycopg2.connect(user= user_par,password= password_par,host= host_par,port= port_par, database= database_par)
     cursor = connection.cursor()
     totalvuln=len(vuln["vulnerabilities"])
-    get_ejecucion = """SELECT MAX(execution) FROM hadolint WHERE image = %s"""
-    cursor.execute(get_ejecucion,(image,))
+    get_ejecucion = """SELECT MAX(execution) FROM hadolint WHERE image = %s AND tag = %s"""
+    cursor.execute(get_ejecucion,(image,tag,))
     execution = [row[0] for row in cursor][0]
     if execution is None:
         execution = 1
@@ -94,8 +95,8 @@ try:
     for i in range(0, totalvuln):
         dt = datetime.now()
         dt = dt.replace(tzinfo=timezone.utc)
-        postgres_insert_query = """ INSERT INTO hadolint (image, line, code, message, columna, file, level, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s) """
-        record_to_insert = (image,vuln["vulnerabilities"][i]["line"],vuln["vulnerabilities"][i]["code"],vuln["vulnerabilities"][i]["message"],vuln["vulnerabilities"][i]["column"],vuln["vulnerabilities"][i]["file"],vuln["vulnerabilities"][i]["level"],execution,dt)
+        postgres_insert_query = """ INSERT INTO hadolint (image, tag, line, code, message, columna, file, level, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s) """
+        record_to_insert = (image,tag,vuln["vulnerabilities"][i]["line"],vuln["vulnerabilities"][i]["code"],vuln["vulnerabilities"][i]["message"],vuln["vulnerabilities"][i]["column"],vuln["vulnerabilities"][i]["file"],vuln["vulnerabilities"][i]["level"],execution,dt)
         cursor.execute(postgres_insert_query, record_to_insert)
         try:
             connection.commit()
