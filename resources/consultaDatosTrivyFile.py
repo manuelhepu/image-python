@@ -124,7 +124,7 @@ try:
     for i in range(0, totalvuln):
         dt = datetime.now()
         dt = dt.replace(tzinfo=timezone.utc)
-        postgres_insert_query = """ INSERT INTO trivy_file (image, tag, target, class, succes, failures, exceptions, type, id_vul, title, description, message, resolution, severity, url, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
+        postgres_insert_query = """ INSERT INTO trivy_file (image, tag, target, class, succes, failures, exceptions, type, id_vul, title, description, message, resolution, severity, url, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
         record_to_insert = (image, tag, vuln["vulnerabilities"][i]["Target"],vuln["vulnerabilities"][i]["Class"],vuln["vulnerabilities"][i]["Successes"],vuln["vulnerabilities"][i]["Failures"],vuln["vulnerabilities"][i]["Exceptions"],vuln["vulnerabilities"][i]["Type"],vuln["vulnerabilities"][i]["ID"],vuln["vulnerabilities"][i]["Title"],vuln["vulnerabilities"][i]["Description"],vuln["vulnerabilities"][i]["Message"], vuln["vulnerabilities"][i]["Resolution"], vuln["vulnerabilities"][i]["Severity"], vuln["vulnerabilities"][i]["PrimaryURL"],execution,dt)
         cursor.execute(postgres_insert_query, record_to_insert)
         try:

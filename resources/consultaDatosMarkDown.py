@@ -69,6 +69,7 @@ fill_vulnerability()
 
 
 
+
 #Create DB connection
 
 try:
@@ -86,8 +87,8 @@ try:
     for i in range(0, totalvuln):
         dt = datetime.now()
         dt = dt.replace(tzinfo=timezone.utc)
-        postgres_insert_query = """ INSERT INTO markdown (image, tag, filename, line, rule, description, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s) """
-        record_to_insert = (image,tag,vuln["vulnerabilities"][i]["filename"],vuln["vulnerabilities"][i]["line"],vuln["vulnerabilities"][i]["rule"],vuln["vulnerabilities"][i]["description"],execution,dt)
+        postgres_insert_query = """ INSERT INTO markdown (image, tag, filename, line, rule, description, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s) """
+        record_to_insert = (image, tag, vuln["vulnerabilities"][i]["filename"],vuln["vulnerabilities"][i]["line"],vuln["vulnerabilities"][i]["rule"],vuln["vulnerabilities"][i]["description"],execution,dt)
         cursor.execute(postgres_insert_query, record_to_insert)
         try:
             connection.commit()

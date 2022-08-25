@@ -95,7 +95,7 @@ try:
     for i in range(0, totalvuln):
         dt = datetime.now()
         dt = dt.replace(tzinfo=timezone.utc)
-        postgres_insert_query = """ INSERT INTO hadolint (image, tag, line, code, message, columna, file, level, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s) """
+        postgres_insert_query = """ INSERT INTO hadolint (image, tag, line, code, message, columna, file, level, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
         record_to_insert = (image,tag,vuln["vulnerabilities"][i]["line"],vuln["vulnerabilities"][i]["code"],vuln["vulnerabilities"][i]["message"],vuln["vulnerabilities"][i]["column"],vuln["vulnerabilities"][i]["file"],vuln["vulnerabilities"][i]["level"],execution,dt)
         cursor.execute(postgres_insert_query, record_to_insert)
         try:
