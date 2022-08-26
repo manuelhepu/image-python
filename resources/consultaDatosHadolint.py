@@ -15,8 +15,9 @@ password_par = sys.argv[3]
 host_par = sys.argv[4]
 port_par = sys.argv[5]
 database_par = sys.argv[6]
-image = sys.argv[7]
-tag = sys.argv[8]
+env = sys.argv[7]
+tegnology = sys.argv[8]
+application_name = sys.argv[9]
 
 
 f = open(report)
@@ -102,7 +103,7 @@ try:
     for i in range(0, totalvuln):
         dt = datetime.now()
         dt = dt.replace(tzinfo=timezone.utc)
-        postgres_insert_query = """ INSERT INTO hadolint (id_application, line, code, message, columna, file, level, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) """
+        postgres_insert_query = """ INSERT INTO hadolint (id_application, line, code, message, columna, file, level, execution, insertiondate) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s) """
         record_to_insert = (id_application,vuln["vulnerabilities"][i]["line"],vuln["vulnerabilities"][i]["code"],vuln["vulnerabilities"][i]["message"],vuln["vulnerabilities"][i]["column"],vuln["vulnerabilities"][i]["file"],vuln["vulnerabilities"][i]["level"],execution,dt)
         cursor.execute(postgres_insert_query, record_to_insert)
         try:
