@@ -18,7 +18,7 @@ database_par = sys.argv[6]
 image = sys.argv[7]
 tag = sys.argv[8]
 env = sys.argv[9]
-tegnology = sys.argv[10]
+technology = sys.argv[10]
 application_name = sys.argv[11]
 
 
@@ -100,8 +100,8 @@ try:
     connection = psycopg2.connect(user= user_par,password= password_par,host= host_par,port= port_par, database= database_par)
     cursor = connection.cursor()
     totalvuln=len(vuln["vulnerabilities"])
-    get_ejecucion = """SELECT id_application FROM applications WHERE env = %s AND tegnology = %s AND application_name = %s"""
-    cursor.execute(get_ejecucion,(env,tegnology,application_name))
+    get_ejecucion = """SELECT id_application FROM applications WHERE env = %s AND technology = %s AND application_name = %s"""
+    cursor.execute(get_ejecucion,(env,technology,application_name))
     execution = [row[0] for row in cursor][0]
     if execution is None:
         print("No existe la app.")
