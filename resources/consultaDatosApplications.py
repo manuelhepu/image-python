@@ -10,7 +10,7 @@ from requests.auth import HTTPBasicAuth
 
 
 env = sys.argv[1]
-tegnology = sys.argv[2]
+technology = sys.argv[2]
 application = sys.argv[3]
 user_par = sys.argv[4]
 password_par = sys.argv[5]
@@ -24,8 +24,8 @@ try:
     connection = psycopg2.connect(user= user_par,password= password_par,host= host_par,port= port_par, database= database_par)
     cursor = connection.cursor()
 
-    get_ejecucion = """SELECT * FROM applications WHERE env = %s AND tegnology = %s AND application_name = %s"""
-    cursor.execute(get_ejecucion,(env,tegnology,application))
+    get_ejecucion = """SELECT * FROM applications WHERE env = %s AND technology = %s AND application_name = %s"""
+    cursor.execute(get_ejecucion,(env,technology,application))
     exist= False
     for row in cursor:
         exist = True
@@ -33,8 +33,8 @@ try:
 
     
     if exist == False:
-        postgres_insert_query = """INSERT INTO applications (env, tegnology, application_name) VALUES (%s, %s, %s) """
-        record_to_insert = (env,tegnology,application)
+        postgres_insert_query = """INSERT INTO applications (env, technology, application_name) VALUES (%s, %s, %s) """
+        record_to_insert = (env,technology,application)
         cursor.execute(postgres_insert_query, record_to_insert)
         try:
             connection.commit()
