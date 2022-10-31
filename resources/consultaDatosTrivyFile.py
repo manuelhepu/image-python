@@ -44,7 +44,6 @@ def fill_vulnerability():
             try:
 
                 numvuln=len(trivy["Results"][k]["Misconfigurations"])
-                print(numvuln)
                 for i in range(0, numvuln):
                     vuln_item = {}
                     try:
