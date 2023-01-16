@@ -53,7 +53,7 @@ def fill_vulnerability():
         #Se calcula el numero de vulnerabilidades que tiene el nodo actual
             try:
                 print(len(trivy["Results"][k]))
-                if len(trivy["Results"][k]) == 4:
+                if len(trivy["Results"][k]) > 2:
                     numvuln=len(trivy["Results"][k]["Vulnerabilities"])
                     for i in range(0, numvuln):
                         vuln_item = {}
