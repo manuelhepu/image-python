@@ -28,11 +28,12 @@ try:
     cursor.execute(get_ejecucion,(env,technology,application))
     exist= False
     for row in cursor:
+        
         exist = True
 
 
     
-    if exist == False and (env == "des" or env == "pre"):
+    if exist == False and (env == "des" or env == "pre")  :
         postgres_insert_query = """INSERT INTO applications (env, technology, application_name) VALUES (%s, %s, %s) """
         record_to_insert = (env,technology,application)
         cursor.execute(postgres_insert_query, record_to_insert)

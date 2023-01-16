@@ -52,42 +52,43 @@ def fill_vulnerability():
     for k in range(0, 1):
         #Se calcula el numero de vulnerabilidades que tiene el nodo actual
             try:
-                numvuln=len(trivy["Results"][k]["Vulnerabilities"])
-                for i in range(0, numvuln):
-                    vuln_item = {}
-                    try:
-                        vuln_item["Target"]=trivy["Results"][k]["Target"]
-                    except KeyError:
-                        vuln_item["Target"]=None
-                    try:
-                        vuln_item["Type"]=trivy["Results"][k]["Type"]
-                    except KeyError:
-                        vuln_item["Type"]=None
-                    try:
-                        vuln_item["ID"]=trivy["Results"][k]["Vulnerabilities"][i]["VulnerabilityID"]
-                    except KeyError:
-                        vuln_item["ID"]=None
-                    try:
-                        vuln_item["PkgName"]=trivy["Results"][k]["Vulnerabilities"][i]["PkgName"]
-                    except KeyError:
-                        vuln_item["PkgName"]=None
-                    try:
-                        vuln_item["InstalledVersion"]=trivy["Results"][k]["Vulnerabilities"][i]["InstalledVersion"]
-                    except KeyError:
-                        vuln_item["InstalledVersion"]=None
-                    try:
-                        vuln_item["FixedVersion"]=trivy["Results"][k]["Vulnerabilities"][i]["FixedVersion"]
-                    except KeyError:
-                        vuln_item["FixedVersion"]=None
-                    try:
-                        vuln_item["Severity"]=trivy["Results"][k]["Vulnerabilities"][i]["Severity"]
-                    except KeyError:
-                        vuln_item["Severity"]=None
-                    try:
-                        vuln_item["PrimaryURL"]=trivy["Results"][k]["Vulnerabilities"][i]["PrimaryURL"]
-                    except KeyError:
-                        vuln_item["PrimaryURL"]=None
-                    add_vulnerability(vuln_item)
+                if len(trivy["Results"][k]) > 3:
+                    numvuln=len(trivy["Results"][k]["Vulnerabilities"])
+                    for i in range(0, numvuln):
+                        vuln_item = {}
+                        try:
+                            vuln_item["Target"]=trivy["Results"][k]["Target"]
+                        except KeyError:
+                            vuln_item["Target"]=None
+                        try:
+                            vuln_item["Type"]=trivy["Results"][k]["Type"]
+                        except KeyError:
+                            vuln_item["Type"]=None
+                        try:
+                            vuln_item["ID"]=trivy["Results"][k]["Vulnerabilities"][i]["VulnerabilityID"]
+                        except KeyError:
+                            vuln_item["ID"]=None
+                        try:
+                            vuln_item["PkgName"]=trivy["Results"][k]["Vulnerabilities"][i]["PkgName"]
+                        except KeyError:
+                            vuln_item["PkgName"]=None
+                        try:
+                            vuln_item["InstalledVersion"]=trivy["Results"][k]["Vulnerabilities"][i]["InstalledVersion"]
+                        except KeyError:
+                            vuln_item["InstalledVersion"]=None
+                        try:
+                            vuln_item["FixedVersion"]=trivy["Results"][k]["Vulnerabilities"][i]["FixedVersion"]
+                        except KeyError:
+                            vuln_item["FixedVersion"]=None
+                        try:
+                            vuln_item["Severity"]=trivy["Results"][k]["Vulnerabilities"][i]["Severity"]
+                        except KeyError:
+                            vuln_item["Severity"]=None
+                        try:
+                            vuln_item["PrimaryURL"]=trivy["Results"][k]["Vulnerabilities"][i]["PrimaryURL"]
+                        except KeyError:
+                            vuln_item["PrimaryURL"]=None
+                        add_vulnerability(vuln_item)
             except KeyError:
                 print("No existen vulnerabilidades para este nodo")
     
