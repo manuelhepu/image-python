@@ -49,7 +49,7 @@ def add_vulnerability(vuln_item):
 
 def fill_vulnerability():
     #Se calcula el numero total de nodos analizados
-    for k in range(0, 1):
+    for k in range(2):
         #Se calcula el numero de vulnerabilidades que tiene el nodo actual
             try:
                 print(len(trivy["Results"][k]))
