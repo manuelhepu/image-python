@@ -9,7 +9,7 @@ COPY resources/consultaDatosHadolint.py /opt/
 COPY resources/consultaDatosApplications.py /opt/
 
 # Instalación paqueteria
-RUN apk add --update --no-cache build-base python3-dev python3 libffi-dev libressl-dev postgresql-dev curl 
+RUN apk add --update --no-cache build-base libffi-dev libressl-dev postgresql-dev curl 
 
 # Instalación modulos python
 RUN pip install regex requests psycopg2-binary pytz  elementpath pyyaml bs4 lxml
